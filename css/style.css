@@ -405,8 +405,11 @@ p {
   body {
     padding: 20px;
   }
+  .container header {
+    padding: 30px;
+  }
   .container header .left h1 {
-    font-size: 30px;
+    font-size: 26px;
   }
   .container header .left .buttons button {
     font-size: 16px;
@@ -429,7 +432,7 @@ p {
 
     to {
       top: 40%;
-      left: -45px;
+      left: -35px;
       width: 70px;
       height: 35px;
       border-top-left-radius: 35px;
@@ -448,7 +451,7 @@ p {
 
     to {
       bottom: 25px;
-      right: -38px;
+      right: -25px;
       width: 70px;
       height: 35px;
       border-bottom-left-radius: 35px;
