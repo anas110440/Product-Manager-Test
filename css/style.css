@@ -408,16 +408,24 @@ p {
   .container {
     width: 95%;
   }
+  .container .navbar .basket svg {
+    width: 40px !important;
+    height: 40px !important;
+  }
   .container header {
-    padding: 30px;
+    padding: 0 30px;
   }
   .container header .left h1 {
     font-size: 30px;
+  }
+  .container header .left .buttons {
+    margin-top: 30px;
   }
   .container header .left .buttons button {
     font-size: 16px;
     padding: 10px;
     gap: 0;
+    margin-bottom: 20px;
   }
   .container header .right .photo img {
     width: 200px;
