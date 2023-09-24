@@ -405,6 +405,9 @@ p {
   body {
     padding: 20px;
   }
+  .container {
+    width: 95%;
+  }
   .container header {
     padding: 30px;
   }
