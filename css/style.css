@@ -10,7 +10,7 @@
 }
 
 body {
-  font-family: Playfair Display;
+  font-family: 'Playfair Display', serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   background: linear-gradient(106deg, #710398 0%, #696dd6 100%);
@@ -66,33 +66,38 @@ p {
   position: relative;
 }
 
-.container::before {
-  content: '';
-  position: absolute;
-  width: 160px;
-  height: 160px;
-  top: -15px;
-  left: -90px;
-  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302),
-    0 4px 8px 3px rgba(60, 64, 67, 0.149);
-  border-radius: 50%;
-  transition: all 0.3s ease-in-out;
-  background: rgba(217, 217, 217, 0.3);
-  animation: sizeing 0.7s ease-in-out both;
-}
+.container::before,
 .container::after {
   content: '';
   position: absolute;
   width: 160px;
   height: 160px;
-  bottom: -85px;
-  right: -90px;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+  background: rgba(217, 217, 217, 0.3);
+  -webkit-animation: sizeing 0.7s ease-in-out both;
+  animation: sizeing 0.7s ease-in-out both;
   box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302),
     0 4px 8px 3px rgba(60, 64, 67, 0.149);
-  border-radius: 50%;
-  background: rgba(217, 217, 217, 0.3);
-  transition: all 0.3s ease-in-out;
-  animation: sizeing 0.7s ease-in-out both;
+}
+.container::before {
+  top: -15px;
+  left: -90px;
+}
+.container::after {
+  bottom: -85px;
+  right: -90px;
+}
+@-webkit-keyframes sizeing {
+  from {
+    width: 0;
+    height: 0;
+  }
+
+  to {
+    width: 160px;
+    height: 160px;
+  }
 }
 @keyframes sizeing {
   from {
@@ -159,7 +164,6 @@ p {
 
 .container header .left h1 {
   color: #710398;
-  font-family: Playfair Display;
   font-size: 50px;
   font-style: normal;
   font-weight: 700;
@@ -176,7 +180,6 @@ p {
 }
 .container header .left .buttons button {
   padding: 15px 25px;
-  font-family: Playfair Display;
   font-size: 23px;
   font-style: normal;
   font-weight: 500;
@@ -214,42 +217,42 @@ p {
 .container header .right img {
   width: 380px;
   height: 380px;
+  -o-object-fit: cover;
   object-fit: cover;
   border-radius: 50%;
 }
 .container header .right .photo {
   position: relative;
 }
-.container header .right .photo::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 50%;
-  border-bottom-left-radius: 190px;
-  border-bottom-right-radius: 190px;
-  border-bottom: 0;
-  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302),
-    0 4px 8px 3px rgba(60, 64, 67, 0.149);
-  background: #b969d6;
-  transition: all 0.3s ease-in-out;
-  animation: scaleDown 0.7s ease-in-out both;
-}
+.container header .right .photo::before,
 .container header .right .photo::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 50%;
-  border-top-left-radius: 190px;
-  border-top-right-radius: 190px;
   border-bottom: 0;
+  transition: all 0.3s ease-in-out;
+  -webkit-animation: scaleDown 0.7s ease-in-out both;
+  animation: scaleDown 0.7s ease-in-out both;
   box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302),
     0 4px 8px 3px rgba(60, 64, 67, 0.149);
+}
+.container header .right .photo::before {
+  bottom: 0;
+  right: 0;
+  background: #b969d6;
+  border-bottom-left-radius: 190px;
+  border-bottom-right-radius: 190px;
+  -webkit-animation: scaleDown 0.7s ease-in-out both;
+  animation: scaleDown 0.7s ease-in-out both;
+}
+.container header .right .photo::after {
+  top: 0;
+  left: 0;
+  border-top-left-radius: 190px;
+  border-top-right-radius: 190px;
   background: #696dd6;
-  transition: all 0.3s ease-in-out;
+  -webkit-animation: scaleUp 0.7s ease-in-out both;
   animation: scaleUp 0.7s ease-in-out both;
 }
 .container header .right .photo:hover::after {
@@ -263,6 +266,25 @@ p {
   padding: 40px;
   padding-top: 0;
   gap: 20px;
+}
+@-webkit-keyframes scaleUp {
+  from {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    border-top-left-radius: 190px;
+    border-top-right-radius: 190px;
+  }
+
+  to {
+    top: 40%;
+    left: -90px;
+    width: 140px;
+    height: 70px;
+    border-top-left-radius: 70px;
+    border-top-right-radius: 70px;
+  }
 }
 @keyframes scaleUp {
   from {
@@ -281,6 +303,25 @@ p {
     height: 70px;
     border-top-left-radius: 70px;
     border-top-right-radius: 70px;
+  }
+}
+@-webkit-keyframes scaleDown {
+  from {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 50%;
+    border-bottom-left-radius: 190px;
+    border-bottom-right-radius: 190px;
+  }
+
+  to {
+    bottom: 25px;
+    right: -40px;
+    width: 140px;
+    height: 70px;
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius: 70px;
   }
 }
 @keyframes scaleDown {
@@ -310,16 +351,12 @@ p {
     margin-bottom: 40px;
   }
   .container::before {
-    content: '';
-    position: absolute;
     width: 60px !important;
     height: 60px !important;
     top: -10px;
     left: -30px;
   }
   .container::after {
-    content: '';
-    position: absolute;
     width: 60px !important;
     height: 60px !important;
     bottom: -30px;
@@ -355,6 +392,25 @@ p {
     width: 250px;
     height: 250px;
   }
+  @-webkit-keyframes scaleUp {
+    from {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      border-top-left-radius: 190px;
+      border-top-right-radius: 190px;
+    }
+
+    to {
+      top: 40%;
+      left: -65px;
+      width: 100px;
+      height: 50px;
+      border-top-left-radius: 50px;
+      border-top-right-radius: 50px;
+    }
+  }
   @keyframes scaleUp {
     from {
       top: 0;
@@ -372,6 +428,25 @@ p {
       height: 50px;
       border-top-left-radius: 50px;
       border-top-right-radius: 50px;
+    }
+  }
+  @-webkit-keyframes scaleDown {
+    from {
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 50%;
+      border-bottom-left-radius: 190px;
+      border-bottom-right-radius: 190px;
+    }
+
+    to {
+      bottom: 25px;
+      right: -38px;
+      width: 100px;
+      height: 50px;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
     }
   }
   @keyframes scaleDown {
@@ -431,6 +506,25 @@ p {
     width: 200px;
     height: 200px;
   }
+  @-webkit-keyframes scaleUp {
+    from {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      border-top-left-radius: 100px;
+      border-top-right-radius: 100px;
+    }
+
+    to {
+      top: 40%;
+      left: -45px;
+      width: 70px;
+      height: 35px;
+      border-top-left-radius: 35px;
+      border-top-right-radius: 35px;
+    }
+  }
   @keyframes scaleUp {
     from {
       top: 0;
@@ -448,6 +542,25 @@ p {
       height: 35px;
       border-top-left-radius: 35px;
       border-top-right-radius: 35px;
+    }
+  }
+  @-webkit-keyframes scaleDown {
+    from {
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 50%;
+      border-bottom-left-radius: 100px;
+      border-bottom-right-radius: 100px;
+    }
+
+    to {
+      bottom: 25px;
+      right: -25px;
+      width: 70px;
+      height: 35px;
+      border-bottom-left-radius: 35px;
+      border-bottom-right-radius: 35px;
     }
   }
   @keyframes scaleDown {
@@ -512,6 +625,25 @@ p {
     width: 250px;
     height: 250px;
   }
+  @-webkit-keyframes scaleUp {
+    from {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      border-top-left-radius: 190px;
+      border-top-right-radius: 190px;
+    }
+
+    to {
+      top: 40%;
+      left: -65px;
+      width: 100px;
+      height: 50px;
+      border-top-left-radius: 50px;
+      border-top-right-radius: 50px;
+    }
+  }
   @keyframes scaleUp {
     from {
       top: 0;
@@ -529,6 +661,25 @@ p {
       height: 50px;
       border-top-left-radius: 50px;
       border-top-right-radius: 50px;
+    }
+  }
+  @-webkit-keyframes scaleDown {
+    from {
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 50%;
+      border-bottom-left-radius: 190px;
+      border-bottom-right-radius: 190px;
+    }
+
+    to {
+      bottom: 25px;
+      right: -38px;
+      width: 100px;
+      height: 50px;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
     }
   }
   @keyframes scaleDown {
@@ -563,16 +714,12 @@ p {
     width: 950px;
   }
   .container::before {
-    content: '';
-    position: absolute;
     width: 100px !important;
     height: 100px !important;
     top: -15px;
     left: -50px;
   }
   .container::after {
-    content: '';
-    position: absolute;
     width: 100px !important;
     height: 100px !important;
     bottom: -45px;
