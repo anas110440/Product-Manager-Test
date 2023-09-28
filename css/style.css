@@ -322,6 +322,18 @@ p {
   padding-top: 0;
   gap: 20px;
 }
+.container .social-icon i {
+  transition: all 0.3s ease-in-out;
+}
+.container .social-icon .fa-instagram:hover {
+  color: #fb3958;
+}
+.container .social-icon .fa-facebook:hover {
+  color: #1877f2;
+}
+.container .social-icon .fa-linkedin:hover {
+  color: #0a66c2;
+}
 @-webkit-keyframes scaleUp {
   from {
     top: 0;
@@ -448,7 +460,7 @@ p {
     height: 100%;
     margin: 0;
     border-radius: 8px;
-    padding: 20px 0;
+    padding: 50px 0;
     list-style: none;
     background-color: #f7f7f7;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
